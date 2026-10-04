@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>For My Babyyyyy ❤️</title>
 
     <style>
@@ -251,7 +250,6 @@
 
     <!-- PAGE 1 -->
     <section class="page active">
-
         <div class="container">
 
             <div class="heart">❤️</div>
@@ -267,16 +265,14 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- PAGE 2 -->
     <section class="page">
-
         <div class="container">
 
-            <h2>Happy 27th Monthsarry My Asawaaa Ko ❤️</h2>
+            <h2>Happy 27th monthsarry my asawaaa kooo ❤️</h2>
 
             <div class="letter">
 
@@ -329,42 +325,41 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- PAGE 3 -->
     <section class="page">
-
         <div class="container">
 
             <h2>Our Memories 📸</h2>
 
             <div class="memories">
 
-                <!-- IMPORTANT:
-                     Photos are inside Love-Surprise folder
-                -->
-
+                <!-- ROOT PHOTOS -->
                 <div class="memory">
-                    <img
-                        src="Love-Surprise/_DSC1316.JPG"
-                        alt="Our memory"
-                    >
+                    <img src="_DSC1316.JPG" alt="Our memory">
                 </div>
 
                 <div class="memory">
-                    <img
-                        src="Love-Surprise/_DSC1317.JPG"
-                        alt="Our memory"
-                    >
+                    <img src="_DSC1317.JPG" alt="Our memory">
                 </div>
 
                 <div class="memory">
-                    <img
-                        src="Love-Surprise/_DSC1318.JPG"
-                        alt="Our memory"
-                    >
+                    <img src="_DSC1318.JPG" alt="Our memory">
+                </div>
+
+                <!-- PHOTOS INSIDE IMAGES FOLDER -->
+                <div class="memory">
+                    <img src="images/_DSC1334.JPG" alt="Our memory">
+                </div>
+
+                <div class="memory">
+                    <img src="images/_DSC1353.JPG" alt="Our memory">
+                </div>
+
+                <div class="memory">
+                    <img src="images/_DSC1358.JPG" alt="Our memory">
                 </div>
 
             </div>
@@ -374,13 +369,11 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- PAGE 4 -->
     <section class="page">
-
         <div class="container">
 
             <h2>Why I Love You ❤️</h2>
@@ -418,20 +411,18 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- PAGE 5 -->
     <section class="page">
-
         <div class="container">
 
             <div class="final-message">
 
                 <div class="heart">❤️</div>
 
-                <h2>I Love You So Much!</h2>
+                <h2>I Love You So Much! ❤️</h2>
 
                 <p>
                     Thank you for staying with me through everything.
@@ -451,37 +442,21 @@
             </div>
 
         </div>
-
     </section>
 
 
-    <!-- PAGE DOTS -->
+    <!-- PAGE NAVIGATION -->
     <div class="nav">
 
-        <div
-            class="dot active"
-            onclick="goToPage(0)">
-        </div>
+        <div class="dot active" onclick="goToPage(0)"></div>
 
-        <div
-            class="dot"
-            onclick="goToPage(1)">
-        </div>
+        <div class="dot" onclick="goToPage(1)"></div>
 
-        <div
-            class="dot"
-            onclick="goToPage(2)">
-        </div>
+        <div class="dot" onclick="goToPage(2)"></div>
 
-        <div
-            class="dot"
-            onclick="goToPage(3)">
-        </div>
+        <div class="dot" onclick="goToPage(3)"></div>
 
-        <div
-            class="dot"
-            onclick="goToPage(4)">
-        </div>
+        <div class="dot" onclick="goToPage(4)"></div>
 
     </div>
 
@@ -513,7 +488,6 @@
 
             });
 
-
             dots.forEach((dot, i) => {
 
                 dot.classList.toggle(
@@ -523,101 +497,82 @@
 
             });
 
-
             currentPage = index;
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-
         }
 
 
         function nextPage() {
 
             if (currentPage < pages.length - 1) {
-
                 showPage(currentPage + 1);
-
             }
 
         }
 
 
         function goToPage(index) {
-
             showPage(index);
-
         }
 
 
         // Keyboard navigation
+        document.addEventListener("keydown", function(event) {
 
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (event.key === "ArrowRight") {
-                    nextPage();
-                }
-
-                if (event.key === "ArrowLeft") {
-                    showPage(currentPage - 1);
-                }
-
+            if (event.key === "ArrowRight") {
+                nextPage();
             }
-        );
+
+            if (event.key === "ArrowLeft") {
+                showPage(currentPage - 1);
+            }
+
+        });
 
 
-        // Mobile swipe
-
+        // Mobile swipe navigation
         let touchStartX = 0;
         let touchEndX = 0;
 
 
-        document.addEventListener(
-            "touchstart",
-            function(event) {
+        document.addEventListener("touchstart", function(event) {
 
-                touchStartX =
-                    event.changedTouches[0].screenX;
+            touchStartX =
+                event.changedTouches[0].screenX;
 
-            }
-        );
+        });
 
 
-        document.addEventListener(
-            "touchend",
-            function(event) {
+        document.addEventListener("touchend", function(event) {
 
-                touchEndX =
-                    event.changedTouches[0].screenX;
+            touchEndX =
+                event.changedTouches[0].screenX;
 
-                const difference =
-                    touchStartX - touchEndX;
+            const difference =
+                touchStartX - touchEndX;
 
+            if (Math.abs(difference) > 60) {
 
-                if (Math.abs(difference) > 60) {
+                if (difference > 0) {
 
-                    if (difference > 0) {
+                    nextPage();
 
-                        nextPage();
+                } else {
 
-                    } else {
-
-                        showPage(currentPage - 1);
-
-                    }
+                    showPage(currentPage - 1);
 
                 }
 
             }
-        );
+
+        });
 
 
         // Floating hearts
-
         function createHeart() {
 
             const heart =
@@ -639,20 +594,16 @@
 
             document.body.appendChild(heart);
 
-
-            setTimeout(
-                () => heart.remove(),
-                10000
-            );
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
 
         }
-
 
         setInterval(createHeart, 900);
 
 
         // Confetti
-
         function createConfetti() {
 
             for (let i = 0; i < 80; i++) {
@@ -680,18 +631,14 @@
                 confetti.style.pointerEvents =
                     "none";
 
-
                 const duration =
                     2 + Math.random() * 3;
-
 
                 confetti.style.transition =
                     `transform ${duration}s linear,
                      opacity ${duration}s linear`;
 
-
                 document.body.appendChild(confetti);
-
 
                 setTimeout(() => {
 
@@ -702,7 +649,6 @@
                     confetti.style.opacity = "0";
 
                 }, 50);
-
 
                 setTimeout(() => {
 
@@ -715,20 +661,15 @@
         }
 
 
-        // Add confetti when entering final page
-
-        const originalShowPage =
-            showPage;
-
+        // Trigger confetti on final page
+        const originalShowPage = showPage;
 
         showPage = function(index) {
 
             originalShowPage(index);
 
             if (index === pages.length - 1) {
-
                 createConfetti();
-
             }
 
         };
